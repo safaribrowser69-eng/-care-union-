@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  ::selection { background: #1B3A6B; color: white; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-navy hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:translate-y-0 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-navy-200 text-navy-700 hover:bg-navy-50 font-semibold rounded-xl transition-all duration-200;
+  }
+  .input {
+    @apply w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-navy-500 focus:outline-none transition-colors text-sm text-navy-900 placeholder:text-slate-400;
+  }
+  .input-label {
+    @apply block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5;
+  }
+  .ticker-wrap { @apply overflow-hidden whitespace-nowrap; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+.razorpay-container { z-index: 9999 !important; }
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes fadeUp { 0% { opacity: 0; transform: translateY(24px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+.gradient-text {
+  background: linear-gradient(135deg, #1B3A6B, #2E7D32);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+:focus-visible { outline: 2px solid #1B3A6B; outline-offset: 3px; border-radius: 6px; }
